@@ -2,7 +2,28 @@ name: Ruby API tests
 
 on:
   workflow_call:
-  
+    inputs:
+      env:
+        description: Choose the environment you want to run the tests 
+        required: true
+        type: choice
+        options:
+        - dev
+        - stg
+        - prd
+      threads:
+        description: Choose how many parallels you want to run
+        required: true
+        type: choice
+        options:
+        - 1
+        - 2
+        - 3
+      tag:
+        description: Enter the tag of the scenario or suite you want to run
+        required: true
+        type: string
+
 jobs:
   environment_setup:
     runs-on: ubuntu-latest
@@ -26,4 +47,4 @@ jobs:
       run: bundle install
 
     - name: RUN TESTS
-      run: rake "parallel_tests[stg, 5, @full_smoke]"
+      run: rake "parallel_tests[${{ github.event.inputs.env }}, ${{ github.event.inputs.threads }}, ${{ github.event.inputs.tag }}]"
