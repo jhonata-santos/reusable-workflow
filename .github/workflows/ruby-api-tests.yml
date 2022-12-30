@@ -17,6 +17,7 @@ jobs:
       
   environment_repository:
     needs: environment_setup
+    runs-on: ubuntu-latest
     steps:   
     - name: CHECKOUT REPOSITORY
       uses: actions/checkout@v3
