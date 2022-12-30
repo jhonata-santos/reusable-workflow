@@ -15,6 +15,9 @@ jobs:
     - name: CONFIG FREETDS FOR DB
       run: sudo apt-get install freetds-dev -y
       
+  environment_repository:
+    needs: environment_setup
+    steps:   
     - name: CHECKOUT REPOSITORY
       uses: actions/checkout@v3
 
