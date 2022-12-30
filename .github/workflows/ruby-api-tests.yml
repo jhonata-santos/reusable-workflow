@@ -37,3 +37,10 @@ jobs:
 
     - name: RUN TESTS
       run: rake "parallel_tests[${{ inputs.env }}, ${{ inputs.threads }}, ${{ inputs.tag }}]"
+
+    - name: GENERATE REPORT
+      uses: actions/upload-artifact@v3
+      with:
+        name: Report Builder
+        path: reports/final_reports
+        retention-days: 5
