@@ -47,4 +47,4 @@ jobs:
       run: bundle install
 
     - name: RUN TESTS
-      run: rake "parallel_tests[${{ github.event.inputs.env }}, ${{ github.event.inputs.threads }}, ${{ github.event.inputs.tag }}]"
+      run: rake "parallel_tests[${{ inputs.env }}, ${{ inputs.threads }}, ${{ inputs.tag }}]"
