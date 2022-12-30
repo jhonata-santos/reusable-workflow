@@ -1,4 +1,4 @@
-name: Setup environment
+name: Ruby API tests
 
 on:
   workflow_call:
