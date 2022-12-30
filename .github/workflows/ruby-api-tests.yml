@@ -25,3 +25,6 @@ jobs:
       
     - name: SETUP GEMS
       run: bundle install
+
+    - name: RUN TESTS
+      run: rake "parallel_tests[stg, 5, @full_smoke]"
