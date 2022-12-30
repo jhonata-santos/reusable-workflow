@@ -14,11 +14,11 @@ jobs:
       with:
         ruby-version: '2.7'
 
-      # - name: CONFIG FREETDS FOR DB
-      #   run: sudo apt-get install freetds-dev -y
+      - name: CONFIG FREETDS FOR DB
+        run: sudo apt-get install freetds-dev -y
 
-      # - name: CLONE PROJECT
-      #   uses: actions/checkout@v3
-      #   with:
-      #     ref: master
-      #     repository: jhonata-santos/ruby-automation-api-template
+      - name: CLONE PROJECT
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          repository: jhonata-santos/ruby-automation-api-template
