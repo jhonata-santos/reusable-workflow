@@ -7,7 +7,7 @@ jobs:
   environment_setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: INSTALL RUBY
         uses: ruby/setup-ruby@v1
@@ -16,3 +16,9 @@ jobs:
 
       - name: CONFIG FREETDS FOR DB
         run: sudo apt-get install freetds-dev -y
+
+      - name: CLONE PROJECT
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          repository: jhonata-santos/ruby-automation-api-template
