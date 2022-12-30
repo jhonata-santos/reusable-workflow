@@ -35,9 +35,17 @@ jobs:
     - name: SETUP GEMS
       run: bundle install
 
+  run_tests:
+    needs: environment_repository
+    runs-on: ubuntu-latest
+    steps:
     - name: RUN TESTS
       run: rake "parallel_tests[${{ inputs.env }}, ${{ inputs.threads }}, ${{ inputs.tag }}]"
 
+  create_report:
+    needs: run_tests
+    runs-on: ubuntu-latest
+    steps:
     - name: GENERATE REPORT
       uses: actions/upload-artifact@v3
       with:
