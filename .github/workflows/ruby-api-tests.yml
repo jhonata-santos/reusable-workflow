@@ -22,3 +22,6 @@ jobs:
       with:
         ref: master
         repository: jhonata-santos/ruby-automation-api-template
+      
+    - name: SETUP GEMS
+      run: bundle install
